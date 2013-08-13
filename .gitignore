@@ -1,1 +1,6 @@
+*.aux
+*.fdb_latexmk
+*.log
+*.pdf
+*.synctex.gz
 *.dat

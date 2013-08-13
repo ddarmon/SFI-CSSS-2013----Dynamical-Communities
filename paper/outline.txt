@@ -1,0 +1,11 @@
+I think a large part of the CSSS Proceedings paper will be fleshing out these methods / results:
+
+* We built a toy model that generates a synthetic dataset through a coupled Bernoulli process, which we used to test our method
+
+* We applied the Leuven detection algorithm to the synthetic data both considering only the static links, and the weights produced by computing the mutual information between every couple of users. We found out that indeed the optimal modularity value found considering the weights is much higher than for the static case.
+
+* We did the same also with a real dataset of Twitter activity and also found a better value of optimal modularity when weighting the links through mutual information values.
+
+* Cesar's work on community snapshots.
+
+* Luís's work on Tweet correlations.
