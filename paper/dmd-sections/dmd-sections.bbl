@@ -1,9 +1,9 @@
 \begin{thebibliography}{1}
 
-\bibitem{cover1994elements}
-Thomas~M Cover, Joy~A Thomas, and John Kieffer.
-\newblock Elements of information theory.
-\newblock {\em SIAM Review}, 36(3):509--510, 1994.
+\bibitem{cover2012elements}
+Thomas~M Cover and Joy~A Thomas.
+\newblock {\em Elements of information theory}.
+\newblock John Wiley \& Sons, 2012.
 
 \bibitem{holland1983stochastic}
 Paul~W Holland, Kathryn~Blackmond Laskey, and Samuel Leinhardt.
@@ -31,5 +31,10 @@ Greg Ver~Steeg and Aram Galstyan.
 \newblock Information transfer in social media.
 \newblock In {\em Proc. 21st Int'l World Wide Web Conf.}, pages 509--518. ACM,
   2012.
+
+\bibitem{vu2009information}
+Vincent~Q Vu, Bin Yu, and Robert~E Kass.
+\newblock Information in the nonstationary case.
+\newblock {\em Neural computation}, 21(3):688--703, 2009.
 
 \end{thebibliography}
