@@ -1,9 +1,24 @@
 \begin{thebibliography}{1}
 
+\bibitem{cover1994elements}
+Thomas~M Cover, Joy~A Thomas, and John Kieffer.
+\newblock Elements of information theory.
+\newblock {\em SIAM Review}, 36(3):509--510, 1994.
+
+\bibitem{holland1983stochastic}
+Paul~W Holland, Kathryn~Blackmond Laskey, and Samuel Leinhardt.
+\newblock Stochastic blockmodels: First steps.
+\newblock {\em Social networks}, 5(2):109--137, 1983.
+
 \bibitem{kolaczyk2009statistical}
 Eric~D Kolaczyk.
 \newblock {\em Statistical analysis of network data: methods and models}.
 \newblock Springer, 2009.
+
+\bibitem{paninski2003estimation}
+Liam Paninski.
+\newblock Estimation of entropy and mutual information.
+\newblock {\em Neural Computation}, 15(6):1191--1253, 2003.
 
 \bibitem{shalizi2007discovering}
 Cosma~Rohilla Shalizi, Marcelo~F Camperi, and Kristina~Lisa Klinkner.
