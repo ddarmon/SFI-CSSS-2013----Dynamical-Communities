@@ -1,0 +1,53 @@
+%%%%% Beginning of preamble %%%%%
+\documentclass[12pt]{article} 
+
+%What kind of document (article) and what size
+%Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm} 
+\usepackage{epsfig,graphicx} 
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+%Sets the margins
+\textwidth = 6.5 in 
+\textheight = 9 in 
+\oddsidemargin = 0.0 in 
+\evensidemargin = 0.0 in 
+\topmargin = 0.0 in 
+\headheight = 0.0 in 
+\headsep = 0.0 in \parskip = 0.2in \parindent = 0.0in
+
+\begin{document} 
+
+\section{Network and Dynamics}
+
+Before proceeding, we fix some notation, following \cite{kolaczyk2009statistical}. Let $G = (V, E)$ be the graph that represents the $|V|$ vertices in the network and the $|E|$ edges between them. We will consider a random field evolving in time on this network. That is, for a finite network, let $X(t, v)$ denote the random variable in some countable alphabet $\mathcal{X}_{v}$ associated with vertex $v$ at time $t$. Overall, $X(t, v)$ is a time-varying random field whose dynamics take place on $G$ and are effected by the topology of $G$. Thus, for fixed $t$, $X(t, \cdot)$ is a random vector and for fixed $v$, $X(\cdot, v)$ is a random field.
+
+For the particular problem we consider here, 
+
+\section{Edge Weighting using Dynamics}
+
+\cite{shalizi2007discovering}
+
+\begin{align}
+	I^{*}[X^{u}; X^{v}] = \frac{I[X^{u}; X^{v}]}{\min \{ H[X^{u}], H[X^{v}]\}}
+\end{align}
+
+\section{Toy Model --- Coupled Bernoulli Processes Embedded in a Stochastic Block Model}
+
+\subsection{Stochastic Block Model}
+
+\subsection{Coupled Bernoulli Process}
+
+Lorem ipsum. \cite{ver2012information}
+
+\begin{align}
+	P(X(t, v) = 1 | \mathbf{X}(t-1), \mathbf{X}(t-2), \ldots) &= P(X(t,v) = 1 | \{ X(t-1, u) : u \in \mathcal{N}(v)\})\\
+	&=\min \left\{p_{v} + \sum_{u \in \mathcal{N}(v)} \iota_{uv} 1[X(t-1, u) = 1], 1\right\}
+\end{align}
+
+\bibliographystyle{plain}
+\bibliography{../references}
+
+\end{document}

@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{kolaczyk2009statistical}
+Eric~D Kolaczyk.
+\newblock {\em Statistical analysis of network data: methods and models}.
+\newblock Springer, 2009.
+
+\bibitem{shalizi2007discovering}
+Cosma~Rohilla Shalizi, Marcelo~F Camperi, and Kristina~Lisa Klinkner.
+\newblock Discovering functional communities in dynamical networks.
+\newblock In {\em Statistical network analysis: Models, issues, and new
+  directions}, pages 140--157. Springer, 2007.
+
+\bibitem{ver2012information}
+Greg Ver~Steeg and Aram Galstyan.
+\newblock Information transfer in social media.
+\newblock In {\em Proc. 21st Int'l World Wide Web Conf.}, pages 509--518. ACM,
+  2012.
+
+\end{thebibliography}
