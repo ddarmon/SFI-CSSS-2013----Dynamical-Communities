@@ -1,9 +1,80 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{blondel2008fast}
+Vincent~D Blondel, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre.
+\newblock Fast unfolding of communities in large networks.
+\newblock {\em Journal of Statistical Mechanics: Theory and Experiment},
+  2008(10):P10008, 2008.
+
+\bibitem{cover2012elements}
+Thomas~M Cover and Joy~A Thomas.
+\newblock {\em Elements of information theory}.
+\newblock John Wiley \& Sons, 2012.
+
+\bibitem{fortunato2010community}
+Santo Fortunato.
+\newblock Community detection in graphs.
+\newblock {\em Physics Reports}, 486(3):75--174, 2010.
+
+\bibitem{holland1983stochastic}
+Paul~W Holland, Kathryn~Blackmond Laskey, and Samuel Leinhardt.
+\newblock Stochastic blockmodels: First steps.
+\newblock {\em Social networks}, 5(2):109--137, 1983.
+
+\bibitem{kawadia2012sequential}
+Vikas Kawadia and Sameet Sreenivasan.
+\newblock Sequential detection of temporal communities by estrangement
+  confinement.
+\newblock {\em Scientific reports}, 2, 2012.
+
+\bibitem{kolaczyk2009statistical}
+Eric~D Kolaczyk.
+\newblock {\em Statistical analysis of network data: methods and models}.
+\newblock Springer, 2009.
+
+\bibitem{Mucha14052010}
+Peter~J. Mucha, Thomas Richardson, Kevin Macon, Mason~A. Porter, and
+  Jukka-Pekka Onnela.
+\newblock Community structure in time-dependent, multiscale, and multiplex
+  networks.
+\newblock {\em Science}, 328(5980):876--878, 2010.
+
+\bibitem{newman2004finding}
+Mark~EJ Newman and Michelle Girvan.
+\newblock Finding and evaluating community structure in networks.
+\newblock {\em Physical review E}, 69(2):026113, 2004.
+
+\bibitem{newman2001random}
+Mark~EJ Newman, Steven~H Strogatz, and Duncan~J Watts.
+\newblock Random graphs with arbitrary degree distributions and their
+  applications.
+\newblock {\em Physical Review E}, 64(2):026118, 2001.
+
+\bibitem{paninski2003estimation}
+Liam Paninski.
+\newblock Estimation of entropy and mutual information.
+\newblock {\em Neural Computation}, 15(6):1191--1253, 2003.
+
+\bibitem{rosvall2010mapping}
+Martin Rosvall and Carl~T Bergstrom.
+\newblock Mapping change in large networks.
+\newblock {\em PloS one}, 5(1):e8694, 2010.
+
+\bibitem{shalizi2007discovering}
+Cosma~Rohilla Shalizi, Marcelo~F Camperi, and Kristina~Lisa Klinkner.
+\newblock Discovering functional communities in dynamical networks.
+\newblock In {\em Statistical network analysis: Models, issues, and new
+  directions}, pages 140--157. Springer, 2007.
 
 \bibitem{ver2012information}
 Greg Ver~Steeg and Aram Galstyan.
 \newblock Information transfer in social media.
 \newblock In {\em Proc. 21st Int'l World Wide Web Conf.}, pages 509--518. ACM,
   2012.
+
+\bibitem{vu2009information}
+Vincent~Q Vu, Bin Yu, and Robert~E Kass.
+\newblock Information in the nonstationary case.
+\newblock {\em Neural computation}, 21(3):688--703, 2009.
 
 \end{thebibliography}

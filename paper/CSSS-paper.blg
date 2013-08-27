@@ -1,46 +1,51 @@
-This is BibTeX, Version 0.99d (TeX Live 2011/MacPorts 2011_5)
+This is BibTeX, Version 0.99d (TeX Live 2010)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: CSSS-paper.aux
 The style file: plain.bst
 Database file #1: references.bib
-You've used 1 entry,
+Repeated entry---line 133 of file references.bib
+ : @article{fortunato2010community
+ :                                ,
+I'm skipping whatever remains of this entry
+You've used 14 entries,
             2118 wiz_defined-function locations,
-            504 strings with 4143 characters,
-and the built_in function-call counts, 485 in all, are:
-= -- 52
-> -- 13
-< -- 1
-+ -- 5
-- -- 4
-* -- 27
-:= -- 73
-add.period$ -- 4
-call.type$ -- 1
-change.case$ -- 5
+            591 strings with 6141 characters,
+and the built_in function-call counts, 4769 in all, are:
+= -- 473
+> -- 209
+< -- 2
++ -- 82
+- -- 68
+* -- 344
+:= -- 796
+add.period$ -- 44
+call.type$ -- 14
+change.case$ -- 74
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 23
-empty$ -- 42
-format.name$ -- 4
-if$ -- 112
+cite$ -- 14
+duplicate$ -- 180
+empty$ -- 383
+format.name$ -- 68
+if$ -- 998
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 2
-pop$ -- 8
+int.to.str$ -- 14
+missing$ -- 16
+newline$ -- 73
+num.names$ -- 28
+pop$ -- 70
 preamble$ -- 1
-purify$ -- 4
+purify$ -- 62
 quote$ -- 0
-skip$ -- 19
+skip$ -- 123
 stack$ -- 0
-substring$ -- 37
-swap$ -- 11
-text.length$ -- 1
+substring$ -- 327
+swap$ -- 33
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
+type$ -- 52
 warning$ -- 0
-while$ -- 5
-width$ -- 2
-write$ -- 14
+while$ -- 47
+width$ -- 16
+write$ -- 156
+(There was 1 error message)
