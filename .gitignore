@@ -3,3 +3,5 @@
 *.log
 *.synctex.gz
 *.dat
+*.bbl
+*.blg

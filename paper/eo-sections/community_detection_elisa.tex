@@ -22,19 +22,19 @@
 
 \section{Communities Detection}
 
-In order to test our hypothesis we run a community detection algorithm on the two networks under analysis: the one produced by the toy model and the Twitter one. 
-We used the algorithm developed by Blondel at al. [1], which is found to be one of the best algorithms for community detection based on modularity 
-optimization, as showed by Fortunato in his review of communities detection methods [2]. 
+In order to test our hypothesis we ran a community detection algorithm on the two networks under analysis: the one produced by the toy model and the Twitter one. 
+We used the algorithm developed by Blondel at al. \cite{blondel2008fast}, which is found to be one of the best algorithms for community detection based on modularity 
+optimization, as shown by Fortunato in his review of communities detection methods\cite{fortunato2010community}. 
 The algorithm works in two phases: in the first one the modularity is optimized by allowing only local changes of communities, 
 and in the second one the found communities are aggregated in order to build a new network of communities. 
 These two phases are repeated iteratively until no increase of modularity is possible.
-In the future we plan to expand the analysis by using also other algorithms, such as Infomap [3], and compare the obtained results.
+In the future we plan to expand the analysis by using also other algorithms, such as Infomap\cite{rosvall2010mapping}, and compare the obtained results.
 The analysis was carried out in two steps: first we applied the algorithm to the binary unweighted network, considering in this way only the \textit{structural}
 relationships between the nodes. These are given, in the case of the real data, by looking at who is \textit{following} who on Twitter, which is an
-explicitly declared relationship. The limitation of this method is that most Twitter users follow a very big number of people, but in practice they
+explicitly declared relationship. The limitation of this method is that most Twitter users follow a very large number of people, but in practice they
 see and share only the tweets belonging to a relatively small subset of the users they follow. Therefore the second step was to apply the algorithm 
 to a weighted version of the networks, that we obtained by weighting each structural link with the value of the mutual information between the two users.
-The obtained results are shown in Table~\ref{table_modularity}.
+The results of this analysis are shown in Table~\ref{table_modularity}.
 
 \begin{center}
 \begin{table}[!ht]
@@ -77,11 +77,7 @@ community affiliation.}
 \section{Sanity Check}
 Dave, could you please take care of this part since it's you who worked on that?
 
-\section{References}
-[1] Blondel, Vincent D., et al. "Fast unfolding of communities in large networks." Journal of Statistical Mechanics: Theory and Experiment 2008.10 (2008): P10008
-
-[2] Fortunato, Santo. "Community detection in graphs." Physics Reports 486.3 (2010): 75-174
-
-[3] Rosvall, Martin, and Carl T. Bergstrom. "Mapping change in large networks." PloS one 5.1 (2010): e8694
+\bibliographystyle{plain}
+\bibliography{../references}
 
 \end{document}
