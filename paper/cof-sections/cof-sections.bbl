@@ -24,4 +24,10 @@ Mark~EJ Newman and Michelle Girvan.
 \newblock Finding and evaluating community structure in networks.
 \newblock {\em Physical review E}, 69(2):026113, 2004.
 
+\bibitem{newman2001random}
+Mark~EJ Newman, Steven~H Strogatz, and Duncan~J Watts.
+\newblock Random graphs with arbitrary degree distributions and their
+  applications.
+\newblock {\em Physical Review E}, 64(2):026118, 2001.
+
 \end{thebibliography}

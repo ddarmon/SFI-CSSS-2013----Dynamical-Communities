@@ -22,14 +22,7 @@
 
 \section{Community Structure}
 
-Many real networks have 
-a natural community structure, where disjoint subgroups of nodes exchange many internal 
-connections among then than with the rest of nodes. Formally, we want to compute the optimal 
-division of the network that minimizes the number of links between subgroups (also called 
-communities). The raw number of links at the boundary does not give a good partition of the 
-network. For example, the community structure can be a consequence of random variations in
-the density of links (2). A more reliable approach uses a null model to assess the quality of a 
-given network partition. Newman and Girvan \cite{newman2004finding} defines the modularity as follows:
+Many real networks have a natural community structure, where disjoint subgroups of nodes exchange more connections within their subgroup than between subgroups. Formally, we want to compute the optimal division of the network that minimizes the number of links between subgroups (also called  communities). The raw number of links across boundaries of communities does not give a good partition of the  network. For example, the community structure can be a consequence of random variations in the density of links. A more reliable approach uses the configuration model \cite{newman2001random} as a null model to assess the quality of a given network partition. Newman and Girvan \cite{newman2004finding} define the modularity as follows:
 
 \begin{equation}
 Q = \frac{1}{2m} \sum_{ij} \left( A_{ij} -
@@ -37,18 +30,18 @@ Q = \frac{1}{2m} \sum_{ij} \left( A_{ij} -
 \label{eq.q}
 \end{equation}
 
-where $2m = \sum_{ij} A_{ij}$ is the number of links and $g_i$
-gives the label of the community the node $i$
+where $m = \frac{1}{2} \sum_{ij} A_{ij}$ is the number of links and $g_i$
+indicates the label of the community the node $i$
 belongs to. Notice that maximizing the above function yields a partition that minimizes the 
 expected number of links falling between different communities, i.e., when 
 $\delta(g_i, g_j) = 0$. 
-Modularity $Q$ takes values between 0 and 1: low modularity indicates the number of links 
+Modularity $Q$ takes values between -1 and 1: low modularity indicates the number of links 
 between distinct communities is not significantly different from the random distribution and high 
 modularity indicates there is a strong community structure.
 
 \section{Community detection in a single layer}
 
-We analyzed the real twitter data using two the binary
+We analyzed the real Twitter data using two the binary
 and the weighted version of the adjacency matrix using
 a Matlab version of the Louvain algorithm \cite{blondel2008fast}.
 The results are (confirming Elisa's values):
@@ -99,7 +92,7 @@ structure with the binary partition.
 
 \subsubsection{Jacquard's index}
 
-The lector may already infer that the value at the right-bottom
+The reader may already infer that the value at the right-bottom
 is an estimation (based in the fact that $>95$\% of nodes are inside the five biggest modules) of the Jacquard index, which in this case
 can be translated as:
 
@@ -109,8 +102,8 @@ J = \frac{\text{Number of nodes inside the same modules}}{\text{Total number of 
 
 \section{Community detection across time snapshots}
 
-In addition to study the community structure a static single network, we studied how the community structure changes across time snapshots. The main reason of this analysis is that, in real twitter data,  the mutual information between users may variate across time, and therefore the community structure of the mutual information network may change across time. As
-a specific example, this type of analysis could potentially be a method to detect the birth of trading topics in the twitter social network.
+In addition to study the community structure a static single network, we studied how the community structure changes across time snapshots. The main reason of this analysis is that, in real Twitter data,  the mutual information between users may vary across time, and therefore the community structure of the mutual information network may change across time. As
+a specific example, this type of analysis could potentially be a method to detect the birth of trending topics in the Twitter social network.
 
 
 
@@ -125,9 +118,9 @@ online as open source in Python and Matlab, respectively.
 
 \subsubsection{Kawadia and Screenivasan algorithm}
 
-The idea of this algorithm is to find a new community partition $P_t$ for a graph snapshot $G_t$, such that the Estrangement (a distance
+The idea of this algorithm is to find a new community partition $P_t$ for a graph snapshot $G_t$, such that the estrangement (a distance
 metric that the authors defined) between the new partition and the
-previous one is smaller than $\delta$. In other words, the algorithm optimizes
+previous one is smaller than $\delta$. In other words, the algorithm solves
 the following constrained optimization problem:
 
 \begin{equation}
@@ -140,13 +133,13 @@ the following constrained optimization problem:
 where $E(P)$ represents the estrangement between the current
 and the last community partition. The authors make use a Lagrange
 multiplier to solve this problem (for more details see \cite{kawadia2012sequential}). Unfortunately, even that the algorithm
-worked for the synthetic data, it did not for the real twitter
+worked for the synthetic data, it did not for the real Twitter
 data. The reason is that the Python library that
 they use to solve the constraint satisfaction problem becomes really
-slow for networks of big size as is the case of the real twitter data
+slow for networks of big size as is the case of the real Twitter data
 that we present here.
 
-\subsubsection{Mucha et Al algorithm}
+\subsubsection{Mucha et al. algorithm}
 
 This algorithm is based in optimizing a modularity definition that
 includes extra terms for the existence of different network layers,
@@ -169,28 +162,28 @@ A_{ijs}
 where $A_{ijs}$ is the element $i,j$ of the adjacency matrix of layer
 $s$, $k_{is}$ the degree of node $i$ inside layer $s$, $m_s$ the
 total weight of layer $s$, $g_{is}$ the module index of node $i$ inside
-layer $s$. Finally, the user parameters $\gamma_s$ balances
+layer $s$. Finally, the user parameter $\gamma_s$ balances
 the within layer contribution and $C_{jsr}$ balances the
 between layer contribution. $C_{jsr}$ can be seen as a virtual
 link between node $j$'s of two different layers $s$ and $r$.
 
 In order to optimize the modularity equation, the authors use
 a generalization of the Louvain algorithm \cite{blondel2008fast}, which
-is one of the most used when dealing with big scale networks.
-The released matlab library of this algorithm outperformed
-by far the previous one in terms of performance and speed. Therefore,
+is one of the most used when dealing with large scale networks.
+The released Matlab library of this algorithm outperformed
+the previous one in terms of performance and speed. Therefore,
 this algorithm is the one that we used to find how modularity
 changes across time.
 
 \subsection{Data}
 
-We create seven different time snapshots of the twitter data, each corresponding to a different week.
+We create seven different time snapshots of the Twitter data, each corresponding to a different week.
 
 \subsection{Results}
 
 Figure \ref{fig.time.modular} represent the modularity across the
 seven different weeks for a single combination of parameters. This Figure shows, that in essence, the
-structure does not variate across times. This fact tell us that
+structure does not vary across time. This fact tell us that
 for this data it may be better to just evaluate the modularity
 of a single snapshot across the entire seven weeks. 
 
@@ -212,7 +205,6 @@ of a single snapshot across the entire seven weeks.
 	\label{fig.time.modular}
 \end{figure}
 	
-
 
 \bibliographystyle{plain}
 \bibliography{../references}
