@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{blondel2008fast}
+Vincent~D Blondel, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre.
+\newblock Fast unfolding of communities in large networks.
+\newblock {\em Journal of Statistical Mechanics: Theory and Experiment},
+  2008(10):P10008, 2008.
+
+\bibitem{kawadia2012sequential}
+Vikas Kawadia and Sameet Sreenivasan.
+\newblock Sequential detection of temporal communities by estrangement
+  confinement.
+\newblock {\em Scientific reports}, 2, 2012.
+
+\bibitem{Mucha14052010}
+Peter~J. Mucha, Thomas Richardson, Kevin Macon, Mason~A. Porter, and
+  Jukka-Pekka Onnela.
+\newblock Community structure in time-dependent, multiscale, and multiplex
+  networks.
+\newblock {\em Science}, 328(5980):876--878, 2010.
+
+\bibitem{newman2004finding}
+Mark~EJ Newman and Michelle Girvan.
+\newblock Finding and evaluating community structure in networks.
+\newblock {\em Physical review E}, 69(2):026113, 2004.
+
+\end{thebibliography}
