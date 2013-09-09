@@ -19,12 +19,45 @@
 \headsep = 0.0 in \parskip = 0.2in \parindent = 0.0in
 
 \begin{document} 
-\title{[Title]} 
-\author{Our names go here.} 
-\date{\today} 
+\title{Detecting Communities Using Information Flow in Social Networks} 
+\author{
+    David Darmon\\
+    Department\\
+    school\\
+  \and
+    Elisa Omodei\\
+    Department\\
+    school\\
+    \and
+    Cesar Flores\\
+    Department\\
+    school\\
+    \and
+    Lu\'{i}s Seoane\\
+    Department\\
+    school\\
+    \and
+    Kevin Stadler\\
+    Department\\
+    school\\
+    \and
+    Jody Wright\\
+    Department\\
+    school\\
+    \and
+    Joshua Garland\\
+    Department\\
+    school\\
+    \and
+    Nix Barnett\\
+    Department\\
+    school\\
+}
+% David Darmon, Elisa Omodei, Cesar Flores, Luís Seoane, Kevin Stadler, Jody Wright, Joshua Garland, Nix Barnett
+\date{16 September 2013} 
 \maketitle 
 
-\abstract{Abstract goes here.}
+\abstract{Many complex networks are characterized by a community structure, i\@.e\@. the presence of groups of nodes that are more densely connected among each other than with the rest of the network. The algorithms developed to detect such communities usually consider the structural properties of the network, i\@.e\@. the static links between nodes. In the case of social networks this means considering for example ``friendship" links on Facebook or ``followers" on Twitter. We argue that these kind of links are not indicative of the real community structure underlying these networks, since social network users usually have hundreds of connections even with people they are only acquaintances with, but they communicate and exchange only with a subset of these connections, and form real communities only within these subsets. In this paper, we adapt standard community detection algorithms to account for this reality using recent work in information theoretic network analysis. We apply this approach to detect \emph{dynamical} / \emph{functional} communities in both synthetic and empirical networks, and determine how the composition of the communities change over time. We find that by explicitly incorporating the observed dynamics of users in social media, we can identify communities hidden in the structural network.}
 
 \section{Introduction}
 
@@ -53,7 +86,7 @@ indicates the label of the community the node $i$
 belongs to. Notice that maximizing the above function yields a partition that minimizes the 
 expected number of links falling between different communities, i.e., when 
 $\delta(g_i, g_j) = 0$. 
-Modularity $Q$ takes values between -1 and 1: low modularity indicates the number of links 
+Modularity $Q$ takes values between 0 and 1: low modularity indicates the number of links 
 between distinct communities is not significantly different from the random distribution and high 
 modularity indicates there is a strong community structure.
 
