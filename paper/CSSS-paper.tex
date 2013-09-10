@@ -7,6 +7,8 @@
 \usepackage{epsfig,graphicx} 
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{authblk}
+\usepackage{verbatim}
 
 
 %Sets the margins
@@ -20,40 +22,50 @@
 
 \begin{document} 
 \title{Detecting Communities Using Information Flow in Social Networks} 
-\author{
-    David Darmon\\
-    Department\\
-    school\\
-  \and
-    Elisa Omodei\\
-    Department\\
-    school\\
-    \and
-    Cesar Flores\\
-    Department\\
-    school\\
-    \and
-    Lu\'{i}s Seoane\\
-    Department\\
-    school\\
-    \and
-    Kevin Stadler\\
-    Department\\
-    school\\
-    \and
-    Jody Wright\\
-    Department\\
-    school\\
-    \and
-    Joshua Garland\\
-    Department\\
-    school\\
-    \and
-    Nix Barnett\\
-    Department\\
-    school\\
-}
-% David Darmon, Elisa Omodei, Cesar Flores, Luís Seoane, Kevin Stadler, Jody Wright, Joshua Garland, Nix Barnett
+% \author{
+%     David Darmon\\
+%     Mathematics\\
+%     University of Maryland, College Park\\
+%   \and
+%     Elisa Omodei\\
+%     Department\\
+%     School\\
+%     \and
+%     Cesar Flores\\
+%     Department\\
+%     School\\
+%     \and
+%     Lu\'{i}s Seoane\\
+%     Department\\
+%     School\\
+%     \and
+%     Kevin Stadler\\
+%     Department\\
+%     School\\
+%     \and
+%     Jody Wright\\
+%     Department\\
+%     School\\
+%     \and
+%     Joshua Garland\\
+%     Department\\
+%     School\\
+%     \and
+%     Nix Barnett\\
+%     Department\\
+%     School\\
+% }
+
+\author[1]{David Darmon}
+\author[2]{Elisa Omodei}
+\author[3]{Cesar Flores}
+\author[4]{Lu\'{i}s Seoane}
+\author[5]{Kevin Stadler}
+\author[6]{Jody Wright}
+\author[7]{Joshua Garland}
+\author[8]{Nix Barnett}
+\affil[1]{Department of Mathematics, University of Maryland, College Park}
+
 \date{16 September 2013} 
 \maketitle 
 
@@ -227,7 +239,9 @@ We use the stochastic block model~\cite{holland1983stochastic} as a generative m
 
 Previous work~\cite{ver2012information} has considered modeling users on Twitter as coupled Poisson processes. In this model, the users are embedded in a directed network, with each vertex in the graph corresponding to a user and each directed edge indicating the presence of `influence' of the initiating user on the terminal user. Influence was modeled as follows: after a user $u$ tweets, the user exerts an influence on its directed neighbors by increasing the instantaneous rate of their associated Poisson process for some interval of time. The authors of~\cite{ver2012information} took the coupling term to decay as a reciprocal power of the time since the tweet occurred.
 
-In this work, we consider a modified version of this model. (\textbf{Mention connections to (directed) Susceptible-Infected-Susceptible type models?}) First, since communication on digital social networks such as Twitter occur in discrete time, we explicitly model each user as a \emph{Bernoulli} process, the discrete-time analog of a Poisson process. Second, in this initial work, we only consider an influence to occur over a single time delay. This corresponds to a choice of time scale. Thus, at a given time instant $t$, the probability of a particular user tweeting, given the entire past behavior of all of the users is
+In this work, we consider a modified version of this model.
+\begin{comment} (\textbf{Mention connections to (directed) Susceptible-Infected-Susceptible type models?}) \end{comment}
+First, since communication on digital social networks such as Twitter occur in discrete time, we explicitly model each user as a \emph{Bernoulli} process, the discrete-time analog of a Poisson process. Second, in this initial work, we only consider an influence to occur over a single time delay. This corresponds to a choice of time scale. Thus, at a given time instant $t$, the probability of a particular user tweeting, given the entire past behavior of all of the users is
 \begin{align}
 	P(X(t, v) = 1 | \mathbf{X}(t-1), \mathbf{X}(t-2), \ldots) &= P(X(t,v) = 1 | \{ X(t-1, u) : u \in \mathcal{N}(v)\})\\
 	&=\min \left\{p_{v} + \sum_{u \in \mathcal{N}(v)} \iota_{uv} 1[X(t-1, u) = 1], 1\right\} \label{Eq-Bernoulli_Model}
@@ -242,7 +256,7 @@ where $\mathcal{N}(v)$ denotes the directed neighbors of $v$ (those users in the
 \label{Fig-Toy_Bernoulli}
 \end{figure}
 
-A schematic for this model is shown in Figure~\ref{Fig-Toy_Bernoulli}. In the left schematic, each solid circle corresponds to a set of nodes in a particular dynamical / functional (\textbf{whatever word we decide to use}) community. Note that these communities may differ from the \emph{structural communities} as defined by the stochastic block model in Section \ref{Sec-SBM}. In particular, we will take $\iota_{uv}$ to be larger between two nodes $u$ and $v$ within the dynamical community than between two nodes in different dynamical communities. In the right schematic, we focus on user 3. For this user, we see that the equation determining the probability of that user tweeting at time $t$ (Equation (\ref{Eq-Bernoulli_Model})) reduces to
+A schematic for this model is shown in Figure~\ref{Fig-Toy_Bernoulli}. In the left schematic, each solid circle corresponds to a set of nodes in a particular dynamical / functional community. Note that these communities may differ from the \emph{structural communities} as defined by the stochastic block model in Section \ref{Sec-SBM}. In particular, we will take $\iota_{uv}$ to be larger between two nodes $u$ and $v$ within the dynamical community than between two nodes in different dynamical communities. In the right schematic, we focus on user 3. For this user, we see that the equation determining the probability of that user tweeting at time $t$ (Equation (\ref{Eq-Bernoulli_Model})) reduces to
 \begin{align}
 	P(X(t, 3) = 1 | \mathbf{X}(t-1), \ldots) &= P(X(t,3) = 1 | X(t, 1)) \\
 		&= \min \left\{p_{3} + \iota_{13} 1[X(t-1, 1) = 1], 1\right\}\\
@@ -363,7 +377,7 @@ structure does not vary across time. This fact tell us that
 for this data it may be better to just evaluate the modularity
 of a single snapshot across the entire seven weeks. 
 
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.87\textwidth]{Figures/modularity_time}
 	\caption{Modularity across time with parameters
