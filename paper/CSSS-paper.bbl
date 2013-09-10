@@ -11,6 +11,12 @@ Thomas~M Cover and Joy~A Thomas.
 \newblock {\em Elements of information theory}.
 \newblock John Wiley \& Sons, 2012.
 
+\bibitem{decelle2011inference}
+Aurelien Decelle, Florent Krzakala, Cristopher Moore, and Lenka Zdeborov{\'a}.
+\newblock Inference and phase transitions in the detection of modules in sparse
+  networks.
+\newblock {\em Physical Review Letters}, 107(6):065701, 2011.
+
 \bibitem{fortunato2010community}
 Santo Fortunato.
 \newblock Community detection in graphs.
@@ -31,6 +37,11 @@ Vikas Kawadia and Sameet Sreenivasan.
 Eric~D Kolaczyk.
 \newblock {\em Statistical analysis of network data: methods and models}.
 \newblock Springer, 2009.
+
+\bibitem{mossel2012stochastic}
+Elchanan Mossel, Joe Neeman, and Allan Sly.
+\newblock Stochastic block models and reconstruction.
+\newblock {\em arXiv preprint arXiv:1202.1499}, 2012.
 
 \bibitem{Mucha14052010}
 Peter~J. Mucha, Thomas Richardson, Kevin Macon, Mason~A. Porter, and
