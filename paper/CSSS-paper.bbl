@@ -22,6 +22,11 @@ Santo Fortunato.
 \newblock Community detection in graphs.
 \newblock {\em Physics Reports}, 486(3):75--174, 2010.
 
+\bibitem{good2010performance}
+Benjamin~H Good, Yves-Alexandre de~Montjoye, and Aaron Clauset.
+\newblock Performance of modularity maximization in practical contexts.
+\newblock {\em Physical Review E}, 81(4):046106, 2010.
+
 \bibitem{holland1983stochastic}
 Paul~W Holland, Kathryn~Blackmond Laskey, and Samuel Leinhardt.
 \newblock Stochastic blockmodels: First steps.
@@ -50,6 +55,11 @@ Peter~J. Mucha, Thomas Richardson, Kevin Macon, Mason~A. Porter, and
   networks.
 \newblock {\em Science}, 328(5980):876--878, 2010.
 
+\bibitem{newman2004analysis}
+Mark~EJ Newman.
+\newblock Analysis of weighted networks.
+\newblock {\em Physical Review E}, 70(5):056131, 2004.
+
 \bibitem{newman2004finding}
 Mark~EJ Newman and Michelle Girvan.
 \newblock Finding and evaluating community structure in networks.
@@ -65,11 +75,6 @@ Mark~EJ Newman, Steven~H Strogatz, and Duncan~J Watts.
 Liam Paninski.
 \newblock Estimation of entropy and mutual information.
 \newblock {\em Neural Computation}, 15(6):1191--1253, 2003.
-
-\bibitem{rosvall2010mapping}
-Martin Rosvall and Carl~T Bergstrom.
-\newblock Mapping change in large networks.
-\newblock {\em PloS one}, 5(1):e8694, 2010.
 
 \bibitem{shalizi2007discovering}
 Cosma~Rohilla Shalizi, Marcelo~F Camperi, and Kristina~Lisa Klinkner.

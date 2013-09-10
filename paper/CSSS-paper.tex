@@ -22,39 +22,6 @@
 
 \begin{document} 
 \title{Detecting Communities Using Information Flow in Social Networks} 
-% \author{
-%     David Darmon\\
-%     Mathematics\\
-%     University of Maryland, College Park\\
-%   \and
-%     Elisa Omodei\\
-%     Department\\
-%     School\\
-%     \and
-%     Cesar Flores\\
-%     Department\\
-%     School\\
-%     \and
-%     Lu\'{i}s Seoane\\
-%     Department\\
-%     School\\
-%     \and
-%     Kevin Stadler\\
-%     Department\\
-%     School\\
-%     \and
-%     Jody Wright\\
-%     Department\\
-%     School\\
-%     \and
-%     Joshua Garland\\
-%     Department\\
-%     School\\
-%     \and
-%     Nix Barnett\\
-%     Department\\
-%     School\\
-% }
 
 \author[1]{David Darmon}
 \author[2]{Elisa Omodei}
@@ -73,13 +40,22 @@
 
 \section{Introduction}
 
+% What is a community and why should we care? (This goes at the beginning of every community detection paper.)
+
+% What is the problem with applying the standard (structural) approach to data from online social networks?
+	% As Elisa points out, online `friendships' aren't as meaningful.
+	% In these contexts, friendships are better defined in terms of the interactions of and between users.
+	% How can we incorporate this viewpoint 
+
+% What is some relevant previous work?
+	% Shalizi's paper: identifies a useful method, but doesn't apply it to social data (it's used on neural data).
+	% The transfer entropy paper: they identify *links*, but then don't take the next step to perform community detection.
+
 Lorem ipsum.
 
 \section{Methods}
 
 \subsection{Network and Dynamics}
-
-\textbf{Put a blurb here about the distinction between `dynamics on vs dynamics of' with networks?}
 
 First, we consider the most general case of a dynamics \emph{on} a \emph{structurally-static} network. We fix some notation, following \cite{kolaczyk2009statistical}. Let $G = (V, E)$ be the graph that represents the $|V|$ vertices in the network and the $|E|$ edges between them. We will consider a random field evolving in time on this network. That is, for a finite network, let $X(t, v)$ denote the random variable in some countable alphabet $\mathcal{X}_{v}$ associated with vertex $v$ at time $t$. Overall, $X(t, v)$ is a time-varying random field whose dynamics take place on $G$ and are effected by the topology of $G$. Thus, for fixed $t$, $X(t, \cdot)$ is a random vector and for fixed $v$, $X(\cdot, v)$ is a random field. We will occasionally refer to the random field at a fixed timepoint $t$ as $\mathbf{X}(t) = (X(t, v_{1}), \ldots, X(t, v_{|V|})).$
 
@@ -102,11 +78,19 @@ Modularity $Q$ takes values between 0 and 1: low modularity indicates the number
 between distinct communities is not significantly different from the random distribution and high 
 modularity indicates there is a strong community structure.
 
+\subsection{Community Detection}
+
+In most networks, the communities described above are not known \emph{a priori} and must be inferred using the network structure encoded in the adjacency matrix $\textbf{A}$. Such inference methods, called \emph{community detection algorithms}, come in a wide variety of forms. One of the most popular approaches is via modularity maximization: the modularity metric (\ref{eq.q}) is treated as an objective function to be maximized~\cite{newman2004finding}. Within the class of modularity maximization-based community inference, many approaches exist for performing the maximization. In this paper, we use the algorithm developed by Blondel at al\@.~\cite{blondel2008fast}, which is found to be one of the best algorithms for community detection based on modularity 
+optimization, as shown by Fortunato in his review of communities detection methods~\cite{fortunato2010community}. 
+The algorithm works in two phases: in the first one the modularity is optimized by allowing only local changes of communities, 
+and in the second one the found communities are aggregated in order to build a new network of communities. 
+These two phases are repeated iteratively until no increase of modularity is possible.
+
 \subsection{Edge Weighting using Dynamics}
 
-\textbf{Put a brief rationale for why we use this approach. Or perhaps this goes in an introductory section where we argue for the need to determine communities based on dynamics?}
+As stated in the introduction, we wish to consider how \emph{dynamics} may be used to aid in the detection of communities. In particular, if we compute a statistic of pairwise dynamics, we can use that statistic to weight the structural edges  in the network, giving a weighted adjacency matrix $\mathbf{W}.$ The generalization of modularity-based community detection algorithms to weighted networks is straightforward, assuming the weight is non-negative and that larger values indicate greater affinity between nodes~\cite{newman2004analysis}.
 
-Let $X^{u} = X(\cdot, u).$ That is, in what follows we implicitly assume the stationarity of $X(t, v)$ with respect to time\footnote{If we do not assume stationarity, the statistics we compute have meaning but are no longer estimators for the parameters we describe. See~\cite{vu2009information}.}. Denoting the joint distribution of $(X^{u}, X^{v})$ as $p(x^{u}, x^{v})$ and the associated marginals as $p(x^{u})$ and $p(x^{v})$, we then define the mutual information between two individuals in the usual way~\cite{cover2012elements} as
+The weighting scheme we use in this paper is as follows. Let $X^{u} = X(\cdot, u).$ That is, in what follows we implicitly assume the stationarity of $X(t, v)$ with respect to time\footnote{If we do not assume stationarity, the statistics we compute have meaning but are no longer estimators for the parameters we describe. See~\cite{vu2009information}.}. Denoting the joint distribution of $(X^{u}, X^{v})$ as $p(x^{u}, x^{v})$ and the associated marginals as $p(x^{u})$ and $p(x^{v})$, we then define the mutual information between two individuals in the usual way~\cite{cover2012elements} as
 \begin{align}
 	I[X^{u}; X^{v}] &= E\left[\log_{2} \frac{p(X^{u}, X^{v})}{p(X^{u})p(X^{v})}\right]\\
 	&= \sum_{x^{u} \in \mathcal{X}^{u}, x^{v} \in \mathcal{X}^{v}} p(x^{u}, x^{v}) \log_{2} \frac{p(x^{u}, x^{v})}{p(x^{u}) p(x^{v})}.
@@ -127,17 +111,15 @@ so dividing by $\min \left\{ H[X^{u}], H[X^{v}]\right\}$ gives the normalized mu
 \begin{align}
 	I^{*}[X^{u}; X^{v}] = \frac{I[X^{u}; X^{v}]}{\min \{ H[X^{u}], H[X^{v}]\}} \label{normalized-MI}
 \end{align}
-which lies between 0 and 1.
+which lies between 0 and 1. Thus, normalized mutual information meets the criterion necessary for the straightforward use of modularity-based community detection algorithms: it is non-negative, and values closer to 1 indicate a greater dependence in the dynamics.
 
 Of course, in an empirical study, we do not know the information theoretic quantities associated with any two users. Instead, we must infer them from an observed time series. To do so, we use the maximum likelihood estimates for all quantities~\cite{paninski2003estimation}. In the absence a parametric model (which we do not assume here), this amounts to using the plug-in estimator for $p(x^{u}, x^{v})$ in (\ref{normalized-MI}). Assuming we observe $\{ (X(t, u), X(t, v)) \}_{t = 1}^{T}$, the plug-in estimator for $p(x^{u}, x^{v})$ is simply
 \begin{align}
 	\hat{p}(x^{u}, x^{v}) = \frac{\#(X(t, u) = x^{u}, X(t, v) = x^{v})}{T},
 \end{align}
-the proportion of times we observe a particular behavior in both individuals out of all behaviors observed.
+the proportion of times we observe a particular behavior in both individuals out of all behaviors observed. Thus, the weighted adjacency matrix $\mathbf{W}$ used as input to~\cite{blondel2008fast} has entries $W_{uv} = \hat{I}^{*}[X^{u}; X^{v}]$ when $A_{uv} = 1$ and 0 otherwise.
 
 As observed in~\cite{paninski2003estimation}, all estimators for information theoretic quantities are biased, including the plug-in estimator. However, the bias is generally proportional to the size of the joint alphabet $\mathcal{X}^{u} \times \mathcal{X}^{v}$ and inversely proportional to the sample size $T$. Since we will typically take $\mathcal{X}^{u} = \{0, 1\}$ for all individuals $u$, $|\mathcal{X}^{u} \times \mathcal{X}^{v}| = 4$, and the bias will be small for the sample sizes we consider.
-
-\textbf{How this gets used in a community detection algorithms goes here (or in a nearby section).}
 
 \subsection{Community detection across time snapshots}
 
@@ -288,12 +270,6 @@ In this paper, only tweets made between 7 AM and 10 PM (EST) were considered. Fo
 \subsection{Community Detection --- Structural vs. Dynamical Links}
 
 In order to test our hypothesis we ran a community detection algorithm on the two networks under analysis: the one produced by the toy model and the Twitter one. 
-We used the algorithm developed by Blondel at al. \cite{blondel2008fast}, which is found to be one of the best algorithms for community detection based on modularity 
-optimization, as shown by Fortunato in his review of communities detection methods\cite{fortunato2010community}. 
-The algorithm works in two phases: in the first one the modularity is optimized by allowing only local changes of communities, 
-and in the second one the found communities are aggregated in order to build a new network of communities. 
-These two phases are repeated iteratively until no increase of modularity is possible.
-In the future we plan to expand the analysis by using also other algorithms, such as Infomap\cite{rosvall2010mapping}, and compare the obtained results.
 The analysis was carried out in two steps: first we applied the algorithm to the binary unweighted network, considering in this way only the \textit{structural}
 relationships between the nodes. These are given, in the case of the real data, by looking at who is \textit{following} who on Twitter, which is an
 explicitly declared relationship. The limitation of this method is that most Twitter users follow a very large number of people, but in practice they
@@ -397,7 +373,11 @@ of a single snapshot across the entire seven weeks.
 
 \section{Discussion}
 
-Lorem ipsum.
+\subsection{Investigation of Detected Communities}
+
+As discussed in~\cite{good2010performance}, due to the difficulty of the community detection problem, it is important to verify the meaningfulness of the resulting communities.
+
+\textbf{Talk about the company network.}
 
 \section{Conclusions and Future Work}
 
