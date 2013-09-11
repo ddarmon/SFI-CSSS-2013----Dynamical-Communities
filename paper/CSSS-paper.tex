@@ -47,6 +47,8 @@
 	% In these contexts, friendships are better defined in terms of the interactions of and between users.
 	% How can we incorporate this viewpoint 
 
+Reference on heavy-tailed degree distribution of both followers and friends~\cite{kwak2010twitter}
+
 % What is some relevant previous work?
 	% Shalizi's paper: identifies a useful method, but doesn't apply it to social data (it's used on neural data).
 	% The transfer entropy paper: they identify *links*, but then don't take the next step to perform community detection.
@@ -373,15 +375,88 @@ of a single snapshot across the entire seven weeks.
 
 \section{Discussion}
 
-\subsection{Investigation of Detected Communities}
+\subsection{Comparing Structural and Dynamical Communities}
 
-As discussed in~\cite{good2010performance}, due to the difficulty of the community detection problem, it is important to verify the meaningfulness of the resulting communities.
+We have seen that 
 
-\textbf{Talk about the company network.}
+To formally compare the structural and dynamical communities, we consider the variation of information between the two community structures~\cite{meilua2003comparing}. The variation of information is defined as follows. We have two partitions $\mathcal{C} = \{C_{1}, \ldots, C_{|\mathcal{C}|}\}$ and $\mathcal{C}' = \{C'_{1}, \ldots, C'_{|\mathcal{C}|}\}$ induced by the community structures, where the $C_{i}$ are the communities detected by each algorithm. We can compute the confusion matrix $\mathbf{N}$ from these two partitions, where
+\begin{align}
+	(\mathbf{N})_{kk'} = |\mathcal{C}_{k} \cap \mathcal{C}_{k'}'|.
+\end{align}
+From the confusion matrix, we can compute an empirical distribution over the clusters for the probability that a node randomly selected from the network belongs in community $C_{k}$ and community $C'_{k'}$,
+\begin{align}
+	p(k, k') = \frac{1}{|V|}(\mathbf{N})_{k k'}.
+\end{align}
+where we recall that $|V|$ is the number of nodes in the network. Let $X$ be the community assigned to the node by partition $\mathcal{C}$ and $Y$ be the community assigned to the node by partition $\mathcal{C}'$. The variation of information is defined in various equivalent forms as
+\begin{align}
+	\text{VI}[\mathcal{C}; \mathcal{C}'] &= H[X, Y] - I[X; Y] \\
+	&= H[X | Y] + H[Y | X] \\
+	&= H[X] + H[Y] - 2 I[X; Y],
+\end{align}
+or can be compactly represented in terms of the information diagram~\cite{yeung1991new} for the standard information theoretic quantities involving $X$ and $Y$ (see Figure \ref{Fig-Information_Diagram}). From the information diagram, we see that the variation of information captures the information in the joint distribution for $(X, Y)$ that is not shared. Thus, variation of information takes maximum value when no information is shared between the two community structures, and its minimum values when the community structures are identical. It is a true metric over the space of partitions for the nodes $V$. Variation of information is bounded between 0 and $\log_{2} |V|$, and thus we will consider the normalized variation of information
+\begin{align}
+	\text{VI}^{*}[\mathcal{C}; \mathcal{C}'] = \frac{\text{VI}[\mathcal{C}; \mathcal{C}']}{\log_{2}|V|}
+\end{align}
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[width=0.50\textwidth]{Figures/Variation-of-Information.png}
+\caption{The information diagram representation of variation of information.}
+\label{Fig-Information_Diagram}
+\end{figure}
+
+For the synthetic example, all but one of the nodes was correctly classified using the weighted community detection algorithm, giving $\text{VI}^{*}[\text{True}; \text{Weighted}] = 0.0115$. In contrast, the variation of information between the unweighted and weighted communities was $\text{VI}^{*}[\text{Unweighted}; \text{Weighted}] = 0.627$. Figure \ref{Fig-Confusion_Matrix_Synthetic} shows the confusion matrix $\mathcal{N}$ for this case. This explains the large variation of information between the two community partitions: the members of the dynamical communities are spread among the `structural' communities identified using the structural network for the synthetic example.
+
+We can perform the same analysis with the Twitter network, but in this case the community partition is unknown. The confusion matrix between the unweighted and weighted community partitions is shown in Figure \ref{Fig-Confusion_Matrix_Twitter}. These partitions give a variation of information of $0.304$. Again, we see from the confusion matrix that the structural communities are generally subdivided amongst the dynamical communities.
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[width=0.75\textwidth]{Figures/confusion_matrix-synthetic.pdf}
+\caption{The confusion matrix $\mathbf{N}$ using the communities from the unweighted network (Method 1) and the communities from the weighted network (Method 2) for the synthetic network. The color bar indicates the number of users overlapping between the two partitions.}
+\label{Fig-Confusion_Matrix_Synthetic}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[width=0.75\textwidth]{Figures/confusion_matrix.pdf}
+\caption{The confusion matrix $\mathbf{N}$ using the communities from the unweighted network (Method 1) and the communities from the weighted network (Method 2) for the Twitter network. The color bar indicates the number of users overlapping between the two partitions.}
+\label{Fig-Confusion_Matrix_Twitter}
+\end{figure}
+
+\subsection{Case Study from the Twitter Network}
+
+As pointed out in~\cite{good2010performance}, due to the limitations of modularity-based community detection, it is important to verify the meaningfulness of communities detected using . 
+
+\begin{table}
+	\caption{The links with greatest $\hat{I}[X^{u}; X^{v}]$ from a dynamical community with 236 members. The majority of these links belong to Twitter accounts owned by Policy Settlement.}
+	\centering
+	\begin{tabular}{l l l}
+		User $u$ & User $v$ & $\hat{I}^{*}[X^{u}; X^{v}]$ \\ \hline
+		LIVEpdq & COImgr & 0.5293023 \\
+		RATEpdq & LIVEmgr & 0.5190174 \\
+		LIVEpdq & LIVEmgr & 0.4943780 \\
+		LIVEpdq & RATEpdq & 0.4892531 \\
+		COImgr & LIVEmgr & 0.4820034 \\
+		COImgr & RATEpdq & 0.4794285 \\
+		LIVEpdq & PolicySettle & 0.4467832 \\
+		RATEpdq & PolicyParables & 0.4357249 \\
+		PolicySettle & RATEpdq & 0.4276809 \\
+		PolicySettle & COImgr & 0.4121432 \\
+		COImgr & PolicyParables & 0.3859275 \\
+		PolicySettle & LIVEmgr & 0.3843806 \\
+		PolicyParables & LIVEmgr & 0.3706989 \\
+		PolicySettle & PolicyParables & 0.3565388 \\
+		misslindadee & DrAlexConcorde & 0.3557640 \\
+		LIVEpdq & PolicyParables & 0.2739896 \\
+	\end{tabular}
+\end{table}
 
 \section{Conclusions and Future Work}
 
 Lorem ipsum.
+
+\clearpage
+\newpage
 
 \bibliographystyle{plain}
 \bibliography{references}

@@ -1,0 +1,16 @@
+29567          0.5293023                      I  24703871 226207535        LIVEpdq          COImgr
+39524          0.5190174                      I 229517477 231535622        RATEpdq         LIVEmgr
+29571          0.4943780                      I  24703871 231535622        LIVEpdq         LIVEmgr
+29569          0.4892531                      I  24703871 229517477        LIVEpdq         RATEpdq
+39499          0.4820034                      I 226207535 231535622         COImgr         LIVEmgr
+39497          0.4794285                      I 226207535 229517477         COImgr         RATEpdq
+29514          0.4467832                      I  24703871 117943004        LIVEpdq    PolicySettle
+39523          0.4357249                      I 229517477 231496926        RATEpdq  PolicyParables
+38201          0.4276809                      I 117943004 229517477   PolicySettle         RATEpdq
+38198          0.4121432                      I 117943004 226207535   PolicySettle          COImgr
+39498          0.3859275                      I 226207535 231496926         COImgr  PolicyParables
+38203          0.3843806                      I 117943004 231535622   PolicySettle         LIVEmgr
+39533          0.3706989                      I 231496926 231535622 PolicyParables         LIVEmgr
+38202          0.3565388                      I 117943004 231496926   PolicySettle  PolicyParables
+32375          0.3557640                      I  33452988 178525052   misslindadee  DrAlexConcorde
+29570          0.2739896                      I  24703871 231496926        LIVEpdq  PolicyParables

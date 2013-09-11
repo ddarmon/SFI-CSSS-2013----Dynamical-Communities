@@ -43,6 +43,18 @@ Eric~D Kolaczyk.
 \newblock {\em Statistical analysis of network data: methods and models}.
 \newblock Springer, 2009.
 
+\bibitem{kwak2010twitter}
+Haewoon Kwak, Changhyun Lee, Hosung Park, and Sue Moon.
+\newblock What is twitter, a social network or a news media?
+\newblock In {\em Proceedings of the 19th international conference on World
+  wide web}, pages 591--600. ACM, 2010.
+
+\bibitem{meilua2003comparing}
+Marina Meil{\u{a}}.
+\newblock Comparing clusterings by the variation of information.
+\newblock In {\em Learning theory and kernel machines}, pages 173--187.
+  Springer, 2003.
+
 \bibitem{mossel2012stochastic}
 Elchanan Mossel, Joe Neeman, and Allan Sly.
 \newblock Stochastic block models and reconstruction.
@@ -92,5 +104,10 @@ Greg Ver~Steeg and Aram Galstyan.
 Vincent~Q Vu, Bin Yu, and Robert~E Kass.
 \newblock Information in the nonstationary case.
 \newblock {\em Neural computation}, 21(3):688--703, 2009.
+
+\bibitem{yeung1991new}
+Raymond~W Yeung.
+\newblock A new outlook on shannon's information measures.
+\newblock {\em Information Theory, IEEE Transactions on}, 37(3):466--474, 1991.
 
 \end{thebibliography}
