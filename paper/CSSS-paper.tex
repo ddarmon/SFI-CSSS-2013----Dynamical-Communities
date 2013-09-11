@@ -409,6 +409,8 @@ For the synthetic example, all but one of the nodes was correctly classified usi
 
 We can perform the same analysis with the Twitter network, but in this case the community partition is unknown. The confusion matrix between the unweighted and weighted community partitions is shown in Figure \ref{Fig-Confusion_Matrix_Twitter}. These partitions give a variation of information of $0.304$. Again, we see from the confusion matrix that the structural communities are generally subdivided amongst the dynamical communities.
 
+\textbf{Talk more about what this means.}
+
 \begin{figure}[h!]
   \centering
 \includegraphics[width=0.75\textwidth]{Figures/confusion_matrix-synthetic.pdf}
@@ -423,9 +425,18 @@ We can perform the same analysis with the Twitter network, but in this case the 
 \label{Fig-Confusion_Matrix_Twitter}
 \end{figure}
 
-\subsection{Case Study from the Twitter Network}
+\subsection{Unfolding Structural Communities into Dynamical Communities}
 
-As pointed out in~\cite{good2010performance}, due to the limitations of modularity-based community detection, it is important to verify the meaningfulness of communities detected using . 
+As pointed out in~\cite{good2010performance}, due to the limitations of modularity-based community detection, it is important to verify the meaningfulness of communities detected using modularity-based methods. To that end, we consider a particular 236 member \emph{dynamical} community from the Twitter network. This community was chosen because it showed the greatest discrepancy in the normalized mutual information on links internal to the community and links connecting outside the community. That is, for a fixed community, we determine the empirical distribution of the normalized mutual information on the links, conditioned on whether the link is within or without the community. The distance between these two distributions, as measured by the Kolmogorov-Smirnov statistic, gives a notion of how insular the community is. An example of the two conditional empirical distributions is shown in Figure~\ref{Fig-Out_v_In_Links}. As expected given our procedure for determining the dynamical communities, the mutual information on links within the community tends to be much larger than the mutual information on links connecting outside of the community.
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[width=0.50\textwidth]{Figures/out-v-in.pdf}
+\caption{The empirical cumulative distribution function for the normalized mutual information on links within (blue) and without (red) a community with 236 members.}
+\label{Fig-Out_v_In_Links}
+\end{figure}
+
+Because of the large difference in the observed mutual information on the links, we next ranked the internal links for the community based on their associated normalized mutual information. This ranking is shown in Table \ref{Tab-Ranked_nMI}. We see that the vast majority of the high mutual information links correspond to edges between usernames owned by Policy Settlement, a life insurance agency with a Twitter presence. These accounts tend to tweet more or less the same information, staggered slightly in time (within five to ten minutes of each other).
 
 \begin{table}
 	\caption{The links with greatest $\hat{I}[X^{u}; X^{v}]$ from a dynamical community with 236 members. The majority of these links belong to Twitter accounts owned by Policy Settlement.}
@@ -449,7 +460,12 @@ As pointed out in~\cite{good2010performance}, due to the limitations of modulari
 		misslindadee & DrAlexConcorde & 0.3557640 \\
 		LIVEpdq & PolicyParables & 0.2739896 \\
 	\end{tabular}
+	\label{Tab-Ranked_nMI}
 \end{table}
+
+Moreover, most of the users in this community, like the Policy Settlement accounts, tend to tweet in the very stereotyped ways typical of so-called Twitter bots: user accounts whose posting is controlled by scripts. Thus, this community seems to consist of a large fraction of the Twitter bots amongst the 3000 users, and the large mutual information between the users' dynamics is related to an underlying cause: the scripted tweet behavior.
+
+Other dynamical communities discovered by this approach more closely resemble our intuitions about what community means in social context. For example, the two user community containing the users IntegrativeInfo and JoshuaStarlight are both run by connected to a Tumblr account run by a single user. Another community of 23 users tend tweet about technology news. Again, both of these dynamical communities are masked inside the structural communities (1291 and 1086 users, respectively) determined using the unweighted network.
 
 \section{Conclusions and Future Work}
 
