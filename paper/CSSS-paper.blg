@@ -7,45 +7,46 @@ Repeated entry---line 133 of file references.bib
  : @article{fortunato2010community
  :                                ,
 I'm skipping whatever remains of this entry
-You've used 20 entries,
+Warning--I didn't find a database entry for "??"
+You've used 19 entries,
             2118 wiz_defined-function locations,
-            624 strings with 7068 characters,
-and the built_in function-call counts, 6984 in all, are:
-= -- 699
-> -- 299
-< -- 4
-+ -- 119
-- -- 98
-* -- 497
-:= -- 1150
-add.period$ -- 64
-call.type$ -- 20
-change.case$ -- 107
+            620 strings with 6868 characters,
+and the built_in function-call counts, 6457 in all, are:
+= -- 643
+> -- 276
+< -- 3
++ -- 110
+- -- 90
+* -- 463
+:= -- 1074
+add.period$ -- 60
+call.type$ -- 19
+change.case$ -- 100
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 270
-empty$ -- 562
-format.name$ -- 98
-if$ -- 1475
+cite$ -- 19
+duplicate$ -- 247
+empty$ -- 521
+format.name$ -- 90
+if$ -- 1354
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 22
-newline$ -- 103
-num.names$ -- 40
-pop$ -- 103
+int.to.str$ -- 19
+missing$ -- 21
+newline$ -- 98
+num.names$ -- 38
+pop$ -- 93
 preamble$ -- 1
-purify$ -- 89
+purify$ -- 83
 quote$ -- 0
-skip$ -- 186
+skip$ -- 168
 stack$ -- 0
-substring$ -- 486
-swap$ -- 58
-text.length$ -- 4
+substring$ -- 449
+swap$ -- 47
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
+type$ -- 72
 warning$ -- 0
-while$ -- 69
-width$ -- 22
-write$ -- 223
+while$ -- 64
+width$ -- 21
+write$ -- 211
 (There was 1 error message)

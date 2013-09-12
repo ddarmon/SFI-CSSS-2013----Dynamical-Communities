@@ -33,6 +33,7 @@
 \author[8]{Nix Barnett}
 \affil[1]{Department of Mathematics, University of Maryland, College Park}
 \affil[3]{Department of Physics, Georgia Institute of Technology, Atlanta}
+\affil[5]{School of Philosophy, Psychology and Language Sciences, The University of Edinburgh, Edinburgh}
 \affil[6]{Department of Microbiology and Immunology, University of British Columbia, Vancouver}
 \affil[7]{Department of Computer Science, University of Colorado, Boulder}
 
@@ -50,13 +51,85 @@
 	% In these contexts, friendships are better defined in terms of the interactions of and between users.
 	% How can we incorporate this viewpoint 
 
-Reference on heavy-tailed degree distribution of both followers and friends~\cite{kwak2010twitter}
-
 % What is some relevant previous work?
 	% Shalizi's paper: identifies a useful method, but doesn't apply it to social data (it's used on neural data).
 	% The transfer entropy paper: they identify *links*, but then don't take the next step to perform community detection.
 
-Lorem ipsum.
+In the rush of the social media and 2.0 website new communication tools are coming to change
+forever the way we conceive human interaction and social communities, as well as to raise very
+important scientific questions that have not been clearly solved yet. We enjoy a more democratized
+and distributed environment were everything is recorded and huge databases--snapshots of 
+humankind--are available in an amount without precedents. This is how social and microblogging
+websites such as Facebook or Twitter constitute perfect laboratories where to study people
+interaction. (For us, Twitter is a first choice because data is permanently available to the
+public.) These web services aggregate users into so-called social networks of a huge size, and tools
+derived from the science of complex networks seem very adequate to investigate such systems.
+
+    Meanwhile, complex networks science is a very young field of research largely steaming from
+graph theory. In the realm of mathematics, a graph--thus a  network--is a well defined objects
+consisting of nodes and edges connecting them; and from this definition we operate to derive
+properties of networks, as Erd\"os, Barabasi and many others did during the preceding decades
+\cite{??}(something by Erd\"os-Renyi, Barabasi, Strogatz, Watts?). Perhaps a first wake up call
+about the complexity of the field arrived when toy random networks \ref{??} (Erd\"os-Renyi) could
+not account for the heavy tails in degree distributions--and yet small world structure--and other
+properties that real networks consistently featured. Luckily enough, a next generation of scientist
+was ready to accept that challenge and new models and mechanisms--such as preferential attachment
+\cite{} (Barabasi- Albert)--were devised and the heavy tails were partly tamed. It was also a proper
+time to tackle more sophisticated question such as community detection within complex networks
+\cite{??} (?) and to characterize a series of metrics such as \emph{centrality}, \emph{betweenness},
+\emph{average shortest path}, et c.
+
+    Once more, all these measures look fantastic on a mathematical graph: a platonic object with
+fixed and well defined nodes and edges, potentially encoding for some actual object at some level of
+abstraction. But from time to time it is interesting to face reality again and to wonder not about
+the mathematical representation, but about the object itself; about the stuff that makes up actual
+networks. In a very subtle way this paper hovers around two core issues regarding real-world complex
+networks: \emph{What does actually make up a network?} and \emph{What constitutes a community within
+a network?}
+
+    Regarding the first question, social networks such as Twitter provide us with a naive approach:
+There exist profiles registered in the Twitter website--potentially with people or companies behind
+them that we refer indistinctly as users--and these profiles constitute the nodes of our networks.
+The profiles \emph{follow} each other providing a well defined and abiding definition of edges
+between nodes. So far so good. But users make profiles on a social network for different reasons,
+and these lead to some \emph{dynamics} happening \emph{on} the nodes: they tweet, talk about each
+other, share hyperlinks to virtual contents, et c. More rigorously, there is an information flow
+through the links that is managed by the activity taking place on the nodes of the network. It is a
+natural thing to abstract ourselves from the twitting action to any other dynamics that could take
+place in any arbitrary kind of network, and then the question above takes a deeper dimension:
+\emph{Since this tweeting, or social interaction, or management of a flow of information is the
+underlying reason why the elements of the network have been put together: what is a network actually
+made of?} Surely not just the raw links that the twitter website provides us with.
+
+    This is one of the question subtly addressed in this paper. To this end, we redefine the links
+between twitter profiles using information transfer \ref{??} (info transfer), that is rigorously
+derived from an information theoretical framework. We assess our results by comparing real-world
+data with a synthetic model whose details we can control. The second important question above allows
+us to further gauge our methods, and is indeed the primary and most explicitly sought goal of the
+present paper: we wish to perform very well at community detection. That is why we introduce a
+redefinition of \emph{what is the stuff of our network} in the first place: we argue that a deeper
+approach to the underlying constituents of a network--e.g. by weighting links through information
+flows--should yield community structures that render a better picture of the reality, as we
+consistently find out in both our twitter and synthetic data.
+
+    As mentioned: assessing the community structure help us decide whether our redefinition of our
+networks is actually worth it. Real-world communities are entities that we can compare to more
+intuitive notions of what a community is--as we do in this text. We should we aware of the potential
+in our approach, as more and more algorithms are developed within the social networks to suggest
+\emph{users} or \emph{content of interest}. Once more abstracting ourselves, in a more general
+purpose network system, our contributions could shed some light on \emph{how networks should grow
+further}. At the same time, from a social-network-user point of view our methods could help us made
+more reliable definitions of who our friends are, or who are those actually influencing us.
+
+    The paper is structured as follows: In section \ref{sec:02} the concepts of community structure
+and community detection under the light of information transfer are discussed. Rigorous mathematical
+definitions are provided upon which we elaborate on the following. In section \ref{sec:03} we
+characterized out two working examples: a toy model of a community structured interaction and real
+data from the microblogging website Twitter. The results are outlined in section \ref{sec:04} where
+we compare communities derived from original \emph{friendship} networks--as defined by the raw
+hyperlink structure of Twitter or of the toy model--with those obtained after the redefinition that
+we introduce. These results are discussed in section \ref{sec:05} and the conclusions and future
+lines of research are summarized in section \ref{sec:06}.
 
 \section{Methods}
 
