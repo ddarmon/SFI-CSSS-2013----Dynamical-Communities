@@ -3,50 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: CSSS-paper.aux
 The style file: plain.bst
 Database file #1: references.bib
-Repeated entry---line 133 of file references.bib
+Repeated entry---line 142 of file references.bib
  : @article{fortunato2010community
  :                                ,
 I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "??"
-You've used 19 entries,
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            620 strings with 6868 characters,
-and the built_in function-call counts, 6457 in all, are:
-= -- 643
-> -- 276
-< -- 3
-+ -- 110
-- -- 90
-* -- 463
-:= -- 1074
-add.period$ -- 60
-call.type$ -- 19
-change.case$ -- 100
+            626 strings with 7025 characters,
+and the built_in function-call counts, 6802 in all, are:
+= -- 679
+> -- 289
+< -- 4
++ -- 115
+- -- 94
+* -- 478
+:= -- 1126
+add.period$ -- 63
+call.type$ -- 20
+change.case$ -- 105
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 247
-empty$ -- 521
-format.name$ -- 90
-if$ -- 1354
+cite$ -- 20
+duplicate$ -- 267
+empty$ -- 545
+format.name$ -- 94
+if$ -- 1434
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 21
-newline$ -- 98
-num.names$ -- 38
-pop$ -- 93
+int.to.str$ -- 20
+missing$ -- 22
+newline$ -- 103
+num.names$ -- 40
+pop$ -- 99
 preamble$ -- 1
-purify$ -- 83
+purify$ -- 87
 quote$ -- 0
-skip$ -- 168
+skip$ -- 187
 stack$ -- 0
-substring$ -- 449
-swap$ -- 47
-text.length$ -- 3
+substring$ -- 462
+swap$ -- 57
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 76
 warning$ -- 0
-while$ -- 64
-width$ -- 21
-write$ -- 211
+while$ -- 67
+width$ -- 22
+write$ -- 222
 (There was 1 error message)

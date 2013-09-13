@@ -501,7 +501,7 @@ We can perform the same analysis with the Twitter network, but in this case the 
 \label{Fig-Confusion_Matrix_Twitter}
 \end{figure}
 
-\subsection{Unfolding Structural Communities into Dynamical Communities}
+\subsection{Unfolding Structural Communities into Dynamical Communities}\label{sec:unfolding}
 
 As pointed out in~\cite{good2010performance}, due to the limitations of modularity-based community detection, it is important to verify the meaningfulness of communities detected using modularity-based methods. To that end, we consider a particular 236 member \emph{dynamical} community from the Twitter network. This community was chosen because it showed the greatest discrepancy in the normalized mutual information on links internal to the community and links connecting outside the community. That is, for a fixed community, we determine the empirical distribution of the normalized mutual information on the links, conditioned on whether the link is within or without the community. The distance between these two distributions, as measured by the Kolmogorov-Smirnov statistic, gives a notion of how insular the community is. An example of the two conditional empirical distributions is shown in Figure~\ref{Fig-Out_v_In_Links}. As expected given our procedure for determining the dynamical communities, the mutual information on links within the community tends to be much larger than the mutual information on links connecting outside of the community.
 
@@ -545,17 +545,26 @@ Other dynamical communities discovered by this approach more closely resemble ou
 
 \section{Future Work}
 
-While our preliminary results are quite promising there are still many things to explore in the future. The first area of research is to better define the notion of \emph{communication}. Currently we define communication as mutual information between when tweets occur for particular users in a network. So essentially if there is temporal correlation between when 2 users tweeting occurs then we say they are communicating or there is some level of information transfer present. This does not however take into account temporally-coincidental tweeting e.g.,  if user $u_1$ and $u_2$ both tweet when they get off work at 5p.m. then these users may be classified as ``communicating" even if they just have similar tweeting schedules and are not actually communicating.  By refining our definition of communication to take into account common notions such as directionality of information flow this may help to assuage some of these issues.
+While our preliminary results are quite promising there are still many things to explore in the future. The first area of research is to better define the notion of \emph{communication} and what we mean by \emph{dynamical community}. Currently we define communication as high mutual information between \emph{when} users tweet in a network. So in other words if there exists temporal similarity between two users tweet histories then we say these users are communicating or at least there is information transfer of some kind occurring. This does not however take into account temporally similar but  coincidental tweeting e.g.,  if user $u_1$ and $u_2$ both tweet when they get off work, then these users may be classified as communicating even if they just have similar tweeting schedules and are not actually communicating. On a similar note this ignores users who really do communicate but do so with varying schedules. For example, if $u_1$ tweets during lunch and then $u_2$ retweets $u_1$ at dinner then there is directed communication occurring here and some form of dynamical connectivity even though their tweet histories have low (or no) temporal similarity due to this lag. As a result these users tweet logs would yield very low mutual information and thus we would not categorize them in the same community even if such a community is present.  
+By refining our definition of communication to take into account notions such as directionality of information flow and retweet statistics, e.g., weighting a graph by what fraction of retweets come from what users, or trying to measure information transfer through retweet patterns we may be able to detect different dynamical communities than those detected by our current notion of communication. %Another important piece of data we may be able to utilize about the network is the use of 
 
-With a new definition of ``communication" it will become increasingly important to implement information metrics as well as community detection algorithms which adhere to these new standards. For example, on Twitter the act of following someone need not be reciprocated. So there is a natural direction to structural edges in the network, the community-detection algorithms we utilized [[cite cite cite ]] as well as the information measure we used (i.e., normalized-mutual information) are all non-directional. If we instead used a directed information measure such as transfer entropy [[cite]] along with a community detection algorithm which worked on directed graphs we may be able to see new and interesting functional networks, which were not present by merely ignoring this natural direction of the network (which is the standard in this community). 
+%  Another important piece of data we may be able to utilize about the network is the use of retweet statistics, e.g., weighting a graph by what fraction of retweets come from what users, or trying to measure information transfer through retweet patterns.
 
-Another important piece of data we may be able to utilize about the network is the use of retweet statistics, e.g., weighting a graph by what fraction of retweets come from what users, or trying to measure information transfer through retweet patterns. This in turn may help bring to surface communities which exist but tweet with varying schedules, e.g., if $u_1$ tweets at lunch and then $u_2$ retweets $u_1$ at dinner then there is directed information transfer occurring here even though they have no temporal connection due to this lag. 
+%This in turn may help bring to surface communities which exist but tweet with varying schedules, e.g., if $u_1$ tweets at lunch and then $u_2$ retweets $u_1$ at dinner then there is directed information transfer occurring here even though they have no temporal connection due to this lag. 
 
-In addition to deeper analysis of what communication really is, it is also important to analyze the validity of community detection based on modularity maximization as discussed in [[David: please add citation from Clauset work you mentioned]]. Other possibilities would be using community detection which do not rely on modularity such as info map [[Elisa:citation]] or stochastic block models. 
 
-With a strong definition of communication as well as information measures and community detection to support it we will then truly be able to see community structure from a mathematical stand point. What are these actual communities however once we detect them needs a more ``sociological" touch. Once communities are detected it will be interesting to then analyze the contents of these tweets either with natural language processing or by hand to see why these communities are formed. 
 
-Finally we need to do a more in depth literary review, communication detection and network analysis of Twitter data is a vast set of work and we need to really explore what has already been done to see what future directions to take this work. 
+
+
+With a refined notion of communication it will become increasingly important to implement information metrics as well as community detection algorithms which adhere to these new standards. For example, on Twitter the act of following someone need not be reciprocated. So there is a natural direction to structural edges in the network, the community-detection algorithms we utilized [[cite cite cite ]] as well as the information measure we used (i.e., normalized-mutual information) are all non-directional. If we instead used a directed information measure such as transfer entropy [[cite]] along with a community detection algorithm which worked on directed graphs we may be able to see new and interesting dynamical networks, which were not present by merely ignoring this natural direction of the network. 
+
+
+
+In addition to deeper analysis of what communication really is and the ramifications this will have on our methods, it is also important to analyze the validity of community detection based on modularity maximization as discussed in [[David: please add citation from Clauset work you mentioned]]. Other possibilities would be using community detection which do not rely on modularity e.g., Infomap \cite{Rosvall08mapsof} or stochastic block models [[David: citation]]. 
+
+With a strong definition of communication, information measures and true \emph{dynamical}-community detection algorithms to bring to life this definition, we should be able to bring to light which users belong to which dynamical  communities. What these actual communities are and why they exist however will require a more ``sociological" touch. Once dynamical communities are detected we hope to analyze the tweet content more extensively either through natural language processing techniques or by hand;  As was done with the twitter-bot analysis in Section \ref{sec:unfolding}. This will also give us the opportunity for a sanity check to see if our techniques falsely categorized communities which don't actually exist.
+
+%Finally we need to do a more in depth literary review, communication detection and network analysis of Twitter data is a vast set of work and we need to really explore what has already been done to see what future directions to take this work. 
 
 % as when the people tweet but we have to consider if this is the most accurate measure of communication. With this question answered exploring more interesting detection algorithms will be possible such as.... 
 
@@ -570,7 +579,7 @@ Finally we need to do a more in depth literary review, communication detection a
 %- Investigate the structure and the dynamics of the Twitter communities with a more “sociological” approach, to try to characterize them and see if they have different behaviours
 %- We need a deeper literature review!
 
- Q for meeting... 
+ %Q for meeting... 
 % 1. what types of information flow should we apply? transfer entropy as opposed to mutual information and then expanding the discussion to directed graphs which is probably more appropriate for twitter data with community detection on directed graphs. 
  
 % Better definition for communication. currently the definition is mutual information between when people tweet. 
@@ -588,20 +597,17 @@ Finally we need to do a more in depth literary review, communication detection a
 %then for nonstatic analysis. It seems like the discussion of detection with time snapshots implies the network structure is actually changing too and for this we use Kawadia and Screenivasan algorithm but then there is Mucha for layered detection ... does this fall into static?
 
 
-We use optimization of modulatory, may also be useful to use other such as stochastic block model or info map. 
+%We use optimization of modulatory, may also be useful to use other such as stochastic block model or info map. 
 
-4.Investigate the structure and the dynamics of the Twitter communities with a more “sociological” approach, to try to characterize them and see if they have different behaviors.... 
-So now actually examine the communities by hand and see if the communities match...Can you then use an information measure to gather statistics on twitter usage e.g., when people tweet in various communities. 
-
-
-
-
-5. -We currently do a  “static network + dynamics on the network” should we dicuss a  “network whose structure also evolves over time” maybe how that network grows with respect to information transfer?
+%4.Investigate the structure and the dynamics of the Twitter communities with a more “sociological” approach, to try to characterize them and see if they have different behaviors.... 
+%So now actually examine the communities by hand and see if the communities match...Can you then use an information measure to gather statistics on twitter usage e.g., when people tweet in various communities. 
 
 
 
 
-7. finally a deeper lit review
+%5. -We currently do a  “static network + dynamics on the network” should we dicuss a  “network whose structure also evolves over time” maybe how that network grows with respect to information transfer?
+
+%7. finally a deeper lit review
 
 \section{Conclussions}
 Lorem ipsum.

@@ -82,6 +82,11 @@ Liam Paninski.
 \newblock Estimation of entropy and mutual information.
 \newblock {\em Neural Computation}, 15(6):1191--1253, 2003.
 
+\bibitem{Rosvall08mapsof}
+M.~Rosvall and C.~T. Bergstrom.
+\newblock Maps of random walks on complex networks reveal community structure.
+\newblock {\em Proc. Natl. Acad. Sci. USA}, page 1118, 2008.
+
 \bibitem{shalizi2007discovering}
 Cosma~Rohilla Shalizi, Marcelo~F Camperi, and Kristina~Lisa Klinkner.
 \newblock Discovering functional communities in dynamical networks.
