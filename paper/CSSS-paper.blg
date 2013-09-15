@@ -7,10 +7,9 @@ Repeated entry---line 142 of file references.bib
  : @article{fortunato2010community
  :                                ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "??"
 You've used 20 entries,
             2118 wiz_defined-function locations,
-            626 strings with 7025 characters,
+            625 strings with 7023 characters,
 and the built_in function-call counts, 6802 in all, are:
 = -- 679
 > -- 289
