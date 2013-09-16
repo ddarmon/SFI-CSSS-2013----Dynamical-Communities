@@ -26,13 +26,14 @@
 \author[1]{David Darmon}
 \author[2]{Elisa Omodei}
 \author[3]{Cesar O. Flores}
-\author[4]{Lu\'{i}s Seoane}
+\author[4]{Lu\'is F. Seoane}
 \author[5]{Kevin Stadler}
 \author[6]{Jody Wright}
 \author[7]{Joshua Garland}
 \author[8]{Nix Barnett}
 \affil[1]{Department of Mathematics, University of Maryland, College Park}
 \affil[3]{School of Physics, Georgia Institute of Technology, Atlanta}
+\affil[4]{ICREA-Complex Systems Lab, Universitat Pompeu Fabra, Barcelona}
 \affil[5]{School of Philosophy, Psychology and Language Sciences, The University of Edinburgh, Edinburgh}
 \affil[6]{Department of Microbiology and Immunology, University of British Columbia, Vancouver}
 \affil[7]{Department of Computer Science, University of Colorado, Boulder}
@@ -150,7 +151,7 @@ We further analyze the resulting communities and analyze structural changes in t
 
 \subsection{Network and Dynamics}
 
-First, we consider the most general case of a dynamics \emph{on} a \emph{structurally-static} network. We fix some notation, following \cite{kolaczyk2009statistical}. Let $G = (V, E)$ be the graph that represents the $|V|$ vertices in the network and the $|E|$ edges between them. We will consider a random field evolving in time on this network. That is, for a finite network, let $X(t, v)$ denote the random variable in some countable alphabet $\mathcal{X}_{v}$ associated with vertex $v$ at time $t$. Overall, $X(t, v)$ is a time-varying random field whose dynamics take place on $G$ and are effected by the topology of $G$. Thus, for fixed $t$, $X(t, \cdot)$ is a random vector and for fixed $v$, $X(\cdot, v)$ is a random field. We will occasionally refer to the random field at a fixed timepoint $t$ as $\mathbf{X}(t) = (X(t, v_{1}), \ldots, X(t, v_{|V|})).$
+First, we consider the most general case of a dynamics \emph{on} a \emph{structurally-static} network. We fix some notation, following \cite{kolaczyk2009statistical}. Let $G = (V, E)$ be the graph that represents the $|V|$ vertices in the network and the $|E|$ edges between them. We will consider a random field evolving in time on this network. That is, for a finite network, let $X(t, v)$ denote the random variable in some countable alphabet $\mathcal{X}_{v}$ associated with vertex $v$ at time $t$. Overall, $X(t, v)$ is a time-varying random field whose dynamics take place on $G$ and are effected by the topology of $G$. Thus, for fixed $t$, $X(t, \cdot)$ is a random field and for fixed $v$, $X(\cdot, v)$ is a stochastic process. We will occasionally refer to the random field at a fixed timepoint $t$ as $\mathbf{X}(t) = (X(t, v_{1}), \ldots, X(t, v_{|V|})).$
 
 For the real world problem we consider in this paper, $G$ corresponds to an (explicit/structural) social network, and $X(t,v)$ corresponds to some observed behavior of an individual $v$ at time $t$. Since the empirical data consists of the tweeting behavior of users on Twitter, we will frequently fix $\mathcal{X}_{v} = \{0, 1\}$ with $X(t, v) = 1$ indicating that user $v$ tweeted at time instant $t$, and $X(t, v) = 0$ indicating that user $v$ did not tweet at time instant $t$.
 
@@ -173,7 +174,7 @@ modularity indicates there is a strong community structure.
 
 \subsection{Community Detection}
 
-In most networks, the communities described above are not known \emph{a priori} and must be inferred using the network structure encoded in the adjacency matrix $\textbf{A}$. Such inference methods, called \emph{community detection algorithms}, come in a wide variety of forms. One of the most popular approaches is via modularity maximization: the modularity metric (\ref{eq.q}) is treated as an objective function to be maximized~\cite{newman2004finding}. Within the class of modularity maximization-based community inference, many approaches exist for performing the maximization. In this paper, we use the algorithm developed by Blondel at al\@.~\cite{blondel2008fast}, which is found to be one of the best algorithms for community detection based on modularity 
+In most networks, the communities described above are not known \emph{a priori} and must be inferred using the network structure encoded in the adjacency matrix $\textbf{A}$. Such inference methods, called \emph{community detection algorithms}, come in a wide variety of forms. One of the most popular approaches is via modularity maximization: the modularity metric (\ref{eq.q}) is treated as an objective function to be maximized~\cite{newman2004finding}. Within the class of modularity maximization-based community inference, many approaches exist for performing the maximization. In this paper, we use the algorithm developed by Blondel et al\@.~\cite{blondel2008fast}, which is found to be one of the best algorithms for community detection based on modularity 
 optimization, as shown by Fortunato in his review of communities detection methods~\cite{fortunato2010community}. 
 The algorithm works in two phases: in the first one the modularity is optimized by allowing only local changes of communities, 
 and in the second one the found communities are aggregated in order to build a new network of communities. 
@@ -216,7 +217,7 @@ As observed in~\cite{paninski2003estimation}, all estimators for information the
 
 \subsection{Community detection across time snapshots}
 
-In addition to study the community structure a static single network, we studied how the community structure changes across time snapshots. The main reason of this analysis is that, in real Twitter data,  the mutual information between users may vary across time, and therefore the community structure of the mutual information network may change across time. As
+In addition to studying the community structure a static single network, we studied how the community structure changes across time snapshots. The main reason of this analysis is that, in real Twitter data,  the mutual information between users may vary across time, and therefore the community structure of the mutual information network may change across time. As
 a specific example, this type of analysis could potentially be a method to detect the birth of trending topics in the Twitter social network.
 
 In order to perform the analysis we used two modularity algorithms
@@ -341,7 +342,7 @@ a base probability plus the influence of 3's directed neighbors.
 
 \subsubsection{Choice of Parameters for Toy Model}
 
-For the results presented in this paper, we took $p_{\text{in}} = 0.1$ and $p_{\text{out}} = 0.05$. These values were chosen to be below the detectability threshold~\cite{decelle2011inference, mossel2012stochastic}. For values of $p_{\text{out}}$ close to $p_{\text{in}}$ (assuming that $p_{\text{in}} > p_{\text{out}}$, as would be the case for assortative social networks), community structure cannot be reliably inferred. Thus, while structural communities are present, any structural communities inferred using the structural network alone will be spurious. For each edge generated by the stochastic block model, the direction of the edge was chosen at random. We took $\iota_{\text{in}} = \frac{0.7}{4}$ and $\iota_{\text{out}} = \frac{0.07}{4}$. Thus, the influence of users within a dynamical community is ten times the influence of users outside the dynamical community. The value for $\iota_{\text{in}}$ was chosen to be below a critical value $\iota^{*}_{\text{in}}$ (dependent on $p$) that lead the users in each community to constantly tweet.
+For the results presented in this paper, we took $p_{\text{in}} = 0.1$ and $p_{\text{out}} = 0.05$. These values were chosen to be below the detectability threshold~\cite{decelle2011inference, mossel2012stochastic}. For values of $p_{\text{out}}$ close to $p_{\text{in}}$ (assuming that $p_{\text{in}} > p_{\text{out}}$, as would be the case for assortative social networks), community structure cannot be reliably inferred. Thus, while structural communities are present, any structural communities inferred using the structural network alone will be spurious. For each edge generated by the stochastic block model, the direction of the edge was chosen at random. We took $\iota_{\text{in}} = \frac{0.7}{4}$ and $\iota_{\text{out}} = \frac{0.07}{4}$. Thus, the influence of users within a dynamical community is ten times the influence of users outside the dynamical community. The value for $\iota_{\text{in}}$ was chosen to be below a critical value $\iota^{*}_{\text{in}}$ (dependent on $p$). Above this value, users in each community remained in a constant state of tweeting.
 
 \subsection{Twitter Dataset}
 
@@ -362,7 +363,7 @@ In this paper, only tweets made between 7 AM and 10 PM (EST) were considered. Fo
 
 \subsection{Community Detection --- Structural vs. Dynamical Links}
 
-In order to test our hypothesis we ran a community detection algorithm on the two networks under analysis: the one produced by the toy model and the Twitter one. 
+In order to test our hypothesis we used the Blondel et al\@. community detection algorithm on the two networks under analysis: the toy model and the Twitter network. 
 The analysis was carried out in two steps: first we applied the algorithm to the binary unweighted network, considering in this way only the \textit{structural}
 relationships between the nodes. These are given, in the case of the real data, by looking at who is \textit{following} who on Twitter, which is an
 explicitly declared relationship. The limitation of this method is that most Twitter users follow a very large number of people, but in practice they
@@ -372,7 +373,7 @@ The results of this analysis are shown in Table~\ref{table_modularity}.
 
 \begin{center}
 \begin{table}[!ht]
-\caption{Communities Detection Results}
+\caption{The community detection results using Blondel et al\@. without (binary) and with (weighted) normalized mutual information.}
 \begin{tabular}{c|c|c|c|c|}
 \cline{2-5}
 & \multicolumn{2}{|c|}{Synthetic Network} & \multicolumn{2}{|c|}{Twitter Network} \\ \cline{2-5}
@@ -397,14 +398,14 @@ representation of the network is different (binary vs weighted),
 the modularity value is not enough to say that the community
 structure is different. The differing values could be due to computing the modularity with and without weighting. To test this hypothesis, we consider the actual community structure in both cases. The sizes and overlap of the largest communities are shown in Table~\ref{Tab-Community_Stats}. By just looking at the number of modules in each representation,
 we can be tempted to say that the community structure is different.
-However, as the next table shows, the percentage of total nodes
+However, as Table \ref{Tab-Community_Stats} shows, the percentage of total nodes
 inside the biggest five nodes is very high. In other words, the
 first five biggest modules dominates the community structure.
 
 
 \begin{table}
 \begin{center}
-\caption{Lorem ipsum.}
+\caption{The sizes and overlaps of communities detected using the unweighted and weighted community detection algorithms.}
 	\begin{tabular}{ | r | c | c | c | c | c | c |}
 		\hline
 		& 1 & 2 & 3 & 4 & 5 & Total \%\\ \hline
@@ -441,7 +442,7 @@ community affiliation.}
 \subsection{Community Detection Across Time}
 
 Figure \ref{fig.time.modular} represent the modularity across the
-seven different weeks for a single combination of parameters. This Figure shows, that in essence, the
+seven different weeks for a single combination of parameters. This figure shows, that in essence, the
 structure does not vary across time. This fact tell us that
 for this data it may be better to just evaluate the modularity
 of a single snapshot across the entire seven weeks. 
@@ -623,10 +624,39 @@ With a strong definition of communication, information measures and true \emph{d
 %7. finally a deeper lit review
 
 \section{Conclussions}
-Lorem ipsum.
 
-\clearpage
-\newpage
+In this paper we have researched two networks that represent systems of social interactions: one
+is derived from a toy model and the other one is reconstructed from Twitter, a microblogging service
+whose network is provided by users \emph{following} each other. We propose that a weighting of the
+links with the information transfer between any two connected nodes might provide a refinement of
+the network, and that this refinement brings us closer to the underlying constituents of the
+networks. Let us note that the toy model was generated ad hoc with a desired and known number of
+communities, whose belonging to them or not would determine the activity of each node as a
+consequence of the activity of the others. In the real-world network the number of communities--if
+any--is unknown.
+
+    We searched for community structure in the original networks and in the weighted ones using an
+algorithm whose performance has been assessed by other authors \cite{} and that is adequate to deal
+with a great number of nodes. In the former, for the toy model the community structure is fragmented
+and different from the one known by construction. Meanwhile, the algorithm applied upon the weighted
+network faithfully recovers the structure that we had imposed. In the case of Twitter users, the
+communities detected in the original network appear less fragmented than the ones we recover after
+weighting the links. Both weighted networks feature a higher optimal modularity than their
+unweighted counterparts. This result suggests that the clusters detected in the weighted version are
+more likely to constitute actual communities, as we know that is the case in the toy model. We
+assessed a singular cluster from the Twitter network, finding that it seems driven by bots posting
+on behalf of a life insurance company.
+
+    Coming back to the very important questions posed during the introduction, we should acknowledge
+the difficulty in them before claiming any definitive resolution. We wonder ourselves what these
+very complex networks are: both in the toy model and the twitter case the constituents were brought
+together to perform a social interaction, either real or simulated. We have a first approach that
+provides clear-cut networks with all or nothing links, and a second one weighting the links somehow
+based on the social activity, which is the very reason--we argue--why the networks came into
+existence in the first place. Based on the results, we can only reconstruct the known structure of
+the toy model after these interactions have been taken into account. If we extend the reliability of
+these results to the real world network we must admit that weighting the links based on the activity
+of the nodes reveals the object under research in a deeper, more adequate manner.
 
 \bibliographystyle{plain}
 \bibliography{references}
