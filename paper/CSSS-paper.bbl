@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{aicher2013adapting}
+Christopher Aicher, Abigail~Z Jacobs, and Aaron Clauset.
+\newblock Adapting the stochastic block model to edge-weighted networks.
+\newblock {\em arXiv preprint arXiv:1305.5782}, 2013.
+
 \bibitem{blondel2008fast}
 Vincent~D Blondel, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre.
 \newblock Fast unfolding of communities in large networks.
@@ -86,6 +91,11 @@ Liam Paninski.
 M.~Rosvall and C.~T. Bergstrom.
 \newblock Maps of random walks on complex networks reveal community structure.
 \newblock {\em Proc. Natl. Acad. Sci. USA}, page 1118, 2008.
+
+\bibitem{schreiber2000measuring}
+Thomas Schreiber.
+\newblock Measuring information transfer.
+\newblock {\em Physical review letters}, 85(2):461, 2000.
 
 \bibitem{shalizi2007discovering}
 Cosma~Rohilla Shalizi, Marcelo~F Camperi, and Kristina~Lisa Klinkner.
